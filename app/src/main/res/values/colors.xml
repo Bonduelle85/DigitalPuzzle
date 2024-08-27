@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="gray">#5C5C5C</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--  Welcome Fragment  -->
+    <color name="welcomeTitleColor">#B14F70</color>
+
+    <!--  Choose Level Fragment  -->
+    <color name="testColor">#7D5DB6</color>
+    <color name="easyColor">#009688</color>
+    <color name="normalColor">#2196F3</color>
+    <color name="hardColor">#FF5722</color>
+
+    <!--  Game Level Fragment  -->
+    <color name="timerColor">#794ACC</color>
+    <color name="numbersTextColor">#303030</color>
+    <color name="addentBackgroundColor">#45787E</color>
+    <color name="sumBackgroundColor">#17641A</color>
+    <color name="optionOneBackgroundColor">#A98F1B</color>
+    <color name="optionTwoBackgroundColor">#7D5DB6</color>
+    <color name="optionThreeBackgroundColor">#B14F70</color>
+    <color name="optionFourBackgroundColor">#009688</color>
+    <color name="optionFiveBackgroundColor">#2196F3</color>
+    <color name="optionSixBackgroundColor">#FF5722</color>
+
 </resources>

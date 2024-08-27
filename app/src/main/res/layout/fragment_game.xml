@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/timerTextView"
+        style="@style/TimerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/sumTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="0:00" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sumTextView"
+        style="@style/SumTextView"
+        android:background="@drawable/sum_number_background"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="9" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/visibleNumberTextView"
+        style="@style/AddendTextView"
+        android:background="@drawable/addend_background"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontal"
+        app:layout_constraintEnd_toStartOf="@id/answerNumberTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sumTextView"
+        tools:text="3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/answerNumberTextView"
+        style="@style/AddendTextView"
+        android:background="@drawable/addend_background"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/visibleNumberTextView"
+        app:layout_constraintTop_toBottomOf="@id/sumTextView"
+        tools:text="?" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/statusTextView"
+        style="@style/StatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal"
+        android:text="@string/right_answers" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/optionOneTextView"
+        style="@style/OptionTextView"
+        android:background="@drawable/option_one_background"
+        app:layout_constraintBottom_toTopOf="@+id/optionFourTextView"
+        app:layout_constraintEnd_toStartOf="@+id/optionTwoTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        tools:text="3" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/optionTwoTextView"
+        style="@style/OptionTextView"
+        android:background="@drawable/option_two_background"
+        app:layout_constraintBottom_toTopOf="@+id/optionFiveTextView"
+        app:layout_constraintEnd_toStartOf="@+id/optionThreeTextView"
+        app:layout_constraintStart_toEndOf="@+id/optionOneTextView"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        tools:text="5" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/optionThreeTextView"
+        style="@style/OptionTextView"
+        android:background="@drawable/option_three_background"
+        app:layout_constraintBottom_toTopOf="@+id/optionSixTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/optionTwoTextView"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        tools:text="4" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/optionFourTextView"
+        style="@style/OptionTextView"
+        android:background="@drawable/option_four_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/optionFiveTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionOneTextView"
+        tools:text="2" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/optionFiveTextView"
+        style="@style/OptionTextView"
+        android:background="@drawable/option_five_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/optionSixTextView"
+        app:layout_constraintStart_toEndOf="@+id/optionFourTextView"
+        app:layout_constraintTop_toBottomOf="@+id/optionTwoTextView"
+        tools:text="7" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/optionSixTextView"
+        style="@style/OptionTextView"
+        android:background="@drawable/option_six_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/optionFiveTextView"
+        app:layout_constraintTop_toBottomOf="@+id/optionThreeTextView"
+        tools:text="8" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

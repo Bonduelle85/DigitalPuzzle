@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">DigitalPuzzle</string>
+
+    <!--  Welcome Fragment  -->
+    <string name="welcome_logo">welcome logo</string>
+    <string name="welcome_title">Простая арифметика</string>
+    <string name="welcome_rules">В центре круга вам будет дана сумма. Ниже - два слагаемых:
+        первое известно, второе вам нужно будет угадать. Ниже приведены варианты ответов.</string>
+    <string name="welcome_example">Напирмер: В центре круга сумма чисел - 8. Первое слагаемое - 3.
+        Следовательно, второе слагаемое должно быть 5.</string>
+    <string name="next">Далее</string>
+
+    <!--  Choose Level Fragment  -->
+    <string name="choose_level_title">Выберите уровень сложности:</string>
+    <string name="test">Тестовый</string>
+    <string name="easy">Лёгкий</string>
+    <string name="normal">Нормальный</string>
+    <string name="hard">Сложный</string>
+
+    <!--  Game Fragment  -->
+    <string name="right_answers">Правильных ответов %s из %s</string>
+
+    <!--  Game Over Fragment  -->
+    <string name="cat">cat</string>
+    <string name="your_score">Ваш счёт: %s</string>
+    <string name="your_percent">Ваш процент правильных ответов: %s%</string>
+    <string name="required_answers">Необходимое количество правильных ответов: %s</string>
+    <string name="required_percent">Необходимый процент правильных ответов: %s%</string>
+    <string name="try_again">Попробовать снова</string>
 </resources>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  Welcome Fragment  -->
+    <style name="WelcomeTitleTextVew" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/consolab</item>
+        <item name="android:textColor">@color/welcomeTitleColor</item>
+    </style>
+
+    <style name="WelcomeRulesTextVew" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/consola</item>
+    </style>
+
+    <style name="WelcomeExampleTextVew" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/consolai</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="NextButton" parent="Widget.AppCompat">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/consola</item>
+        <item name="android:backgroundTint">@color/welcomeTitleColor</item>
+        <item name="cornerRadius">3dp</item>
+    </style>
+
+    <!--  Choose Level Fragment  -->
+    <style name="ChooseLevelTitleTextVew" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/consola</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="LevelButton" parent="Widget.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/consolai</item>
+        <item name="cornerRadius">3dp</item>
+    </style>
+
+    <!--  Game Fragment  -->
+    <style name="TimerTextView" parent="Widget.AppCompat">
+        <item name="android:fontFamily">@font/consolab</item>
+        <item name="android:textColor">@color/timerColor</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="StatusTextView" parent="Widget.AppCompat">
+        <item name="android:fontFamily">@font/consola</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BaseTextView" parent="Widget.AppCompat">
+        <item name="android:fontFamily">@font/consolab</item>
+        <item name="android:textColor">@color/numbersTextColor</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SumTextView" parent="BaseTextView">
+        <item name="android:textSize">48sp</item>
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+    </style>
+
+    <style name="AddendTextView" parent="BaseTextView">
+        <item name="android:textSize">36sp</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
+    </style>
+
+    <style name="OptionTextView" parent="BaseTextView">
+        <item name="android:textSize">32sp</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+</resources>

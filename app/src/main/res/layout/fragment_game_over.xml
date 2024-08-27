@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".presentation.GameOverFragment">
+
+    <ImageView
+        android:id="@+id/smileImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginVertical="48dp"
+        android:contentDescription="@string/cat"
+        tools:src="@drawable/happy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/scoreTextView"
+        style="@style/StatusTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/your_score"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical90"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineHorizontal" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/percentTextView"
+        style="@style/StatusTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/your_percent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical90"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rightAnswersTextView"
+        style="@style/StatusTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/required_answers"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineVertical90"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+        app:layout_constraintTop_toBottomOf="@+id/percentTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/requiredPercent"
+        style="@style/StatusTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/required_percent"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineVertical90"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+        app:layout_constraintTop_toBottomOf="@+id/rightAnswersTextView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/testButton"
+        style="@style/NextButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/try_again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical90"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical10" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

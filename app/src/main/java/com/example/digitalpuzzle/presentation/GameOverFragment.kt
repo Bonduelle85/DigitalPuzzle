@@ -55,12 +55,12 @@ class GameOverFragment : Fragment() {
 
     private fun parseArguments() {
         gameResult = if (Build.VERSION.SDK_INT >= VERSION_CODES.TIRAMISU)
-            requireArguments().getSerializable(
+            requireArguments().getParcelable<GameResult>(
                 GAME_RESULT_KEY,
                 GameResult::class.java
             ) as GameResult
         else
-            requireArguments().getSerializable(GAME_RESULT_KEY) as GameResult
+            requireArguments().getParcelable<GameResult>(GAME_RESULT_KEY) as GameResult
     }
 
     private fun retryGame() {
@@ -77,7 +77,7 @@ class GameOverFragment : Fragment() {
         fun newInstance(gameResult: GameResult): GameOverFragment {
             return GameOverFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(GAME_RESULT_KEY, gameResult)
+                    putParcelable(GAME_RESULT_KEY, gameResult)
                 }
             }
         }

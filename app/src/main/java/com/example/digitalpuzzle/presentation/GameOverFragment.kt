@@ -54,13 +54,8 @@ class GameOverFragment : Fragment() {
     }
 
     private fun parseArguments() {
-        gameResult = if (Build.VERSION.SDK_INT >= VERSION_CODES.TIRAMISU)
-            requireArguments().getParcelable<GameResult>(
-                GAME_RESULT_KEY,
-                GameResult::class.java
-            ) as GameResult
-        else
-            requireArguments().getParcelable<GameResult>(GAME_RESULT_KEY) as GameResult
+        val arguments = requireArguments().parcelable<GameResult>(GAME_RESULT_KEY)
+        arguments?.let { gameResult = it }
     }
 
     private fun retryGame() {

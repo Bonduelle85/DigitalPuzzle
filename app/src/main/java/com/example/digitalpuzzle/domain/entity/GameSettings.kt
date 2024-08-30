@@ -1,5 +1,6 @@
 package com.example.digitalpuzzle.domain.entity
 
+import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.io.Serializable

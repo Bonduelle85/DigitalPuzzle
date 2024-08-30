@@ -59,10 +59,8 @@ class GameFragment : Fragment() {
     }
 
     private fun parseArguments() {
-        level = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-            requireArguments().getParcelable<Level>(LEVEL_KEY, Level::class.java) as Level
-        else
-            requireArguments().getParcelable<Level>(LEVEL_KEY) as Level
+        val arguments = requireArguments().parcelable<Level>(LEVEL_KEY)
+        arguments?.let { level = it }
     }
 
     private fun launchGameOverFragment(gameResult: GameResult) {

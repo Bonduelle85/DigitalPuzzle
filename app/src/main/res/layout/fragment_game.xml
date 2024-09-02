@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/visibleNumberTextView"
         app:layout_constraintTop_toBottomOf="@id/sumTextView"
-        tools:text="?" />
+        android:text="?" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/statusTextView"
@@ -66,7 +66,7 @@
         android:text="@string/right_answers" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/gameProgressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
         app:layout_constraintBottom_toTopOf="@+id/optionFourTextView"
         app:layout_constraintEnd_toStartOf="@+id/optionTwoTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/gameProgressBar"
         tools:text="3" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -92,7 +92,7 @@
         app:layout_constraintBottom_toTopOf="@+id/optionFiveTextView"
         app:layout_constraintEnd_toStartOf="@+id/optionThreeTextView"
         app:layout_constraintStart_toEndOf="@+id/optionOneTextView"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/gameProgressBar"
         tools:text="5" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -102,7 +102,7 @@
         app:layout_constraintBottom_toTopOf="@+id/optionSixTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/optionTwoTextView"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/gameProgressBar"
         tools:text="4" />
 
     <com.google.android.material.textview.MaterialTextView

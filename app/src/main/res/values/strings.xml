@@ -18,7 +18,7 @@
     <string name="hard">Сложный</string>
 
     <!--  Game Fragment  -->
-    <string name="right_answers">Правильных ответов %s из %s</string>
+    <string name="right_answers">Правильных ответов %d (минимум %d)</string>
 
     <!--  Game Over Fragment  -->
     <string name="cat">cat</string>

@@ -1,7 +1,10 @@
 package com.example.digitalpuzzle.domain.entity
 
 data class Question(
-    private val sumNumber: Int,
-    private val visibleNumber: Int,
-    private val answers: List<Int>,
-)
+     val sumNumber: Int,
+     val visibleNumber: Int,
+     val answers: List<Int>,
+) {
+     val rightAnswer: Int
+          get() = sumNumber - visibleNumber
+}

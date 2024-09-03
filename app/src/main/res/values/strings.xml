@@ -22,9 +22,9 @@
 
     <!--  Game Over Fragment  -->
     <string name="cat">cat</string>
-    <string name="your_score">Ваш счёт: %s</string>
-    <string name="your_percent">Ваш процент правильных ответов: %s%</string>
-    <string name="required_answers">Необходимое количество правильных ответов: %s</string>
-    <string name="required_percent">Необходимый процент правильных ответов: %s%</string>
+    <string name="your_score">Ваш счёт: %d</string>
+    <string name="your_percent">Ваш процент правильных ответов: %d%%</string>
+    <string name="required_answers">Необходимое количество правильных ответов: %d</string>
+    <string name="required_percent">Необходимый процент правильных ответов: %d%%</string>
     <string name="try_again">Попробовать снова</string>
 </resources>

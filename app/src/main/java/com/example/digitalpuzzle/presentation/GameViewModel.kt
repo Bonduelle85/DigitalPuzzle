@@ -5,6 +5,7 @@ import android.os.CountDownTimer
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.digitalpuzzle.R
 import com.example.digitalpuzzle.data.GameRepositoryImpl
 import com.example.digitalpuzzle.domain.entity.GameResult
@@ -15,7 +16,10 @@ import com.example.digitalpuzzle.domain.usecases.GenerateQuestionUseCase
 import com.example.digitalpuzzle.domain.usecases.GetGameSettingsUseCase
 import java.util.Locale
 
-class GameViewModel(application: Application) : AndroidViewModel(application) {
+class GameViewModel(
+    private val application: Application,
+    private val level: Level,
+) : ViewModel() {
 
 
     private val repository = GameRepositoryImpl
@@ -23,7 +27,6 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val getGameSettingsUseCase = GetGameSettingsUseCase(repository)
     private val generateQuestionUseCase = GenerateQuestionUseCase(repository)
 
-    private lateinit var level: Level
     private lateinit var gameSettings: GameSettings
     private var timer: CountDownTimer? = null
     private val context = application
@@ -63,8 +66,8 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     val gameResult: LiveData<GameResult>
         get() = _gameResult
 
-    fun startGame(level: Level) {
-        getGameSettings(level)
+    init {
+        getGameSettings()
         startTimer()
         generateQuestion()
         updateProgress()
@@ -87,8 +90,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private fun getGameSettings(level: Level) {
-        this.level = level
+    private fun getGameSettings() {
         this.gameSettings = getGameSettingsUseCase(level)
         _minPercent.value = gameSettings.minPercentOfRightAnswers
     }
@@ -129,7 +131,6 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             override fun onTick(millisUntilFinished: Long) {
                 _formattedTimer.value = formatTime(millisUntilFinished)
             }
-
             override fun onFinish() {
                 finishGame()
             }
@@ -141,12 +142,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         val seconds = millisUntilFinished / MILLIS_IN_SECONDS
         val minutes = seconds / SECONDS_IN_MINUTES
         val remainingSeconds = seconds - (minutes * SECONDS_IN_MINUTES)
-        return String.format(
-            Locale.getDefault(),
-            "%02d:%02d",
-            minutes,
-            remainingSeconds
-        ) //"$minutes:$remainingSeconds"
+        return String.format(Locale.getDefault(), "%02d:%02d", minutes, remainingSeconds)
     }
 
     private fun generateQuestion() {

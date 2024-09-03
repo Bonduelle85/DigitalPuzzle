@@ -1,7 +1,5 @@
 package com.example.digitalpuzzle.presentation
 
-import android.os.Build
-import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.example.digitalpuzzle.R
 import com.example.digitalpuzzle.databinding.FragmentGameOverBinding
 import com.example.digitalpuzzle.domain.entity.GameResult
 
@@ -36,16 +35,44 @@ class GameOverFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.tryAgainButton.setOnClickListener {
-            retryGame()
-        }
 
-        requireActivity().onBackPressedDispatcher
-            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+        bindViews()
+        setupClickListeners()
+    }
+
+    private fun bindViews() {
+        binding.smileImage.setImageResource(getImageId())
+        binding.scoreTextView.text = getString(R.string.your_score, gameResult.countRightAnswers)
+        binding.percentTextView.text = getString(R.string.your_percent, getPercentOfRightAnswers())
+        binding.rightAnswersTextView.text = getString(
+            R.string.required_answers,
+            gameResult.gameSettings.minCountOfRightAnswers
+        )
+        binding.requiredPercentTextView.text = getString(
+            R.string.required_percent,
+            gameResult.gameSettings.minPercentOfRightAnswers
+        )
+    }
+
+    private fun setupClickListeners() {
+        binding.tryAgainButton.setOnClickListener { retryGame() }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     retryGame()
                 }
-            })
+            }
+        )
+    }
+
+    private fun getImageId(): Int =
+        if (gameResult.isWinnner) R.drawable.winner else R.drawable.loser
+
+    private fun getPercentOfRightAnswers() = with(gameResult) {
+        val percentOfRightAnswers = ((countRightAnswers / countQuestions.toDouble()) * 100).toInt()
+        if (countQuestions == 0) 0 else percentOfRightAnswers
     }
 
     override fun onDestroyView() {

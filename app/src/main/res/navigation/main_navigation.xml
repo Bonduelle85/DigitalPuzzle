@@ -32,10 +32,17 @@
             android:id="@+id/action_gameFragment_to_gameOverFragment"
             app:destination="@id/gameOverFragment"
             app:popUpTo="@id/chooseLevelFragment" />
+        <argument
+            android:name="level"
+            app:argType="com.example.digitalpuzzle.domain.entity.Level" />
     </fragment>
     <fragment
         android:id="@+id/gameOverFragment"
         android:name="com.example.digitalpuzzle.presentation.GameOverFragment"
         android:label="fragment_game_over"
-        tools:layout="@layout/fragment_game_over" />
+        tools:layout="@layout/fragment_game_over" >
+        <argument
+            android:name="gameResult"
+            app:argType="com.example.digitalpuzzle.domain.entity.GameResult" />
+    </fragment>
 </navigation>

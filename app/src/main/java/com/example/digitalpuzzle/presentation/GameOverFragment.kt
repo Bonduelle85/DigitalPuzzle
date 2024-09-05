@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.digitalpuzzle.R
 import com.example.digitalpuzzle.databinding.FragmentGameOverBinding
 import com.example.digitalpuzzle.domain.entity.GameResult
@@ -18,12 +17,8 @@ class GameOverFragment : Fragment() {
     private val binding: FragmentGameOverBinding
         get() = _binding ?: throw RuntimeException("FragmentGameOverBinding == null")
 
-    private lateinit var gameResult: GameResult
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parseArguments()
-    }
+    private val arguments by navArgs<GameOverFragmentArgs>()
+    private val gameResult by lazy { arguments.gameResult }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,25 +67,7 @@ class GameOverFragment : Fragment() {
         _binding = null
     }
 
-    private fun parseArguments() {
-        val arguments = requireArguments().parcelable<GameResult>(GAME_RESULT_KEY)
-        arguments?.let { gameResult = it }
-    }
-
     private fun retryGame() {
         findNavController().popBackStack()
-    }
-
-    companion object {
-
-        const val GAME_RESULT_KEY = "GAME_RESULT_KEY"
-
-        fun newInstance(gameResult: GameResult): GameOverFragment {
-            return GameOverFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(GAME_RESULT_KEY, gameResult)
-                }
-            }
-        }
     }
 }

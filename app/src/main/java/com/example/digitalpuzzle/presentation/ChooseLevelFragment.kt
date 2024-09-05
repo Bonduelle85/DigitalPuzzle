@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.digitalpuzzle.R
 import com.example.digitalpuzzle.databinding.FragmentChooseLevelBinding
 import com.example.digitalpuzzle.domain.entity.Level
-import com.example.digitalpuzzle.presentation.GameFragment.Companion.LEVEL_KEY
 
 class ChooseLevelFragment : Fragment() {
 
@@ -51,10 +50,10 @@ class ChooseLevelFragment : Fragment() {
     }
 
     private fun launchGameFragment(level: Level) {
-        val arguments = Bundle().apply {
-            putParcelable(LEVEL_KEY, level)
-        }
-        findNavController().navigate(R.id.action_chooseLevelFragment_to_gameFragment, arguments)
+        findNavController()
+            .navigate(
+                ChooseLevelFragmentDirections.actionChooseLevelFragmentToGameFragment(level)
+            )
     }
 
     companion object {

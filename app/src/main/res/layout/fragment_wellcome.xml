@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context=".presentation.WellcomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="32dp"
-        tools:context=".presentation.WelcomeFragment">
+        tools:context=".presentation.WellcomeFragment">
 
         <ImageView
             android:id="@+id/logoImageView"

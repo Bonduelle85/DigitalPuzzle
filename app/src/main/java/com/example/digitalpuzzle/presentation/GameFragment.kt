@@ -10,10 +10,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
+import androidx.navigation.fragment.findNavController
 import com.example.digitalpuzzle.R
 import com.example.digitalpuzzle.databinding.FragmentGameBinding
 import com.example.digitalpuzzle.domain.entity.GameResult
 import com.example.digitalpuzzle.domain.entity.Level
+import com.example.digitalpuzzle.presentation.GameOverFragment.Companion.GAME_RESULT_KEY
 
 class GameFragment : Fragment() {
 
@@ -119,16 +121,16 @@ class GameFragment : Fragment() {
     }
 
     private fun launchGameOverFragment(gameResult: GameResult) {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.mainContainer, GameOverFragment.newInstance(gameResult))
-            .addToBackStack(null)
-            .commit()
+        val arguments = Bundle().apply {
+            putParcelable(GAME_RESULT_KEY, gameResult)
+        }
+        findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment, arguments)
     }
 
     companion object {
 
         const val NAME = "GameFragment"
-        private const val LEVEL_KEY = "LEVEL_KEY"
+        const val LEVEL_KEY = "LEVEL_KEY"
 
         fun newInstance(level: Level): GameFragment {
             return GameFragment().apply {

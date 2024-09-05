@@ -1,17 +1,20 @@
 package com.example.digitalpuzzle.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.example.digitalpuzzle.R
-import com.example.digitalpuzzle.databinding.FragmentWelcomeBinding
+import com.example.digitalpuzzle.databinding.FragmentWellcomeBinding
 
-class WelcomeFragment : Fragment() {
+class WellcomeFragment : Fragment() {
 
-    private var _binding: FragmentWelcomeBinding? = null
-    private val binding: FragmentWelcomeBinding
+    private var _binding: FragmentWellcomeBinding? = null
+    private val binding: FragmentWellcomeBinding
         get() = _binding ?: throw RuntimeException("FragmentWelcomeBinding == null")
 
     override fun onCreateView(
@@ -19,7 +22,7 @@ class WelcomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
+        _binding = FragmentWellcomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -31,10 +34,7 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun launchChooseLevelFragment() {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.mainContainer, ChooseLevelFragment.newInstance())
-            .addToBackStack(null)
-            .commit()
+        findNavController().navigate(R.id.action_wellcomeFragment_to_chooseLevelFragment)
     }
 
     override fun onDestroyView() {
@@ -43,8 +43,8 @@ class WelcomeFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): WelcomeFragment {
-            return WelcomeFragment()
+        fun newInstance(): WellcomeFragment {
+            return WellcomeFragment()
         }
     }
 }
